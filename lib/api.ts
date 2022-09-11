@@ -1,7 +1,13 @@
 import client, { previewClient } from './sanity'
+import sanity from '../sanity-client'
 
 const getUniquePosts = (posts) => {
   const slugs = new Set()
+
+  console.log({ posts })
+  if (posts === undefined || posts.filter === undefined) {
+    return []
+  }
   return posts.filter((post) => {
     if (slugs.has(post.slug)) {
       return false
@@ -42,11 +48,10 @@ export async function getAllPostsWithSlug() {
 }
 
 export async function getAllPostsForHome(preview) {
-  const results = await getClient(preview)
-    .fetch(`*[_type == "post"] | order(publishedAt desc){
-      ${postFields}
-    }`)
-  return getUniquePosts(results)
+  const blogPost = await sanity.getAll('post', `_type == "post" `)
+  const results = await getClient(preview).fetch(`*[_type == "post"]`)
+  console.log({ blogPost })
+  return getUniquePosts(blogPost)
 }
 
 export async function getPostAndMorePosts(slug, preview) {

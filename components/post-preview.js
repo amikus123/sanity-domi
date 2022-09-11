@@ -18,7 +18,8 @@ export default function PostPreview({
           slug={slug}
           title={title}
           imageObject={coverImage}
-          url={urlForImage(coverImage).url()}
+          url={''}
+          // url={urlForImage(coverImage).url()}
         />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">

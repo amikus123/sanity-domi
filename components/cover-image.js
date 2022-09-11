@@ -11,7 +11,8 @@ export default function CoverImage({ title, url, imageObject, slug }) {
       className={cn('shadow-small', {
         'transition-shadow duration-200 hover:shadow-medium': slug,
       })}
-      src={urlForImage(imageObject).width(1240).height(540).url()}
+      // src={urlForImage(imageObject).width(1240).height(540).url()}
+      src=""
     />
   )
 
