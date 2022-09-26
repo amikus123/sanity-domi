@@ -12,7 +12,7 @@ export default function Index({ allPosts, preview }) {
   const morePosts = allPosts.slice(1)
   return (
     <>
-      <Layout preview={preview}>
+      {/* <Layout preview={preview}>
         <Head>
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
@@ -30,7 +30,7 @@ export default function Index({ allPosts, preview }) {
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
-      </Layout>
+      </Layout> */}
     </>
   )
 }
