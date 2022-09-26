@@ -9,8 +9,8 @@
  *  }
  */
 export default {
-  title: 'Block Content',
-  name: 'blockContent',
+  title: 'Dish page',
+  name: 'dishPage',
   type: 'array',
   of: [
     {
@@ -58,28 +58,8 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      title: 'Image',
-      name: 'image',
       type: 'image',
-      options: {
-        hotspot: true, // <-- Defaults to false
-      },
-      fields: [
-        {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
-          options: {
-            isHighlighted: true, // <-- make this field easily accessible
-          },
-        },
-        {
-          // Editing this field will be hidden behind an "Edit"-button
-          name: 'attribution',
-          type: 'string',
-          title: 'Attribution',
-        },
-      ],
+      options: { hotspot: true },
     },
   ],
 }

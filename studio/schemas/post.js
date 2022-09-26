@@ -21,18 +21,28 @@ export default {
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: { type: 'author' },
-    },
-    {
-      name: 'mainImage',
-      title: 'Main image',
+      title: 'Image',
+      name: 'image',
       type: 'image',
       options: {
-        hotspot: true,
+        hotspot: true, // <-- Defaults to false
       },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          options: {
+            isHighlighted: true, // <-- make this field easily accessible
+          },
+        },
+        {
+          // Editing this field will be hidden behind an "Edit"-button
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
     },
     {
       name: 'categories',
@@ -55,14 +65,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
-    },
-    prepare(selection) {
-      const { author } = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
-      })
     },
   },
 }
